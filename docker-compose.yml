@@ -3,13 +3,13 @@ services:
   app:
     container_name: docker-node-mongo
     restart: always
-    build: .
+    build: . # busca el Dockerfile y lo corre
     ports:
       - '80:3000'
     links:
-      - mongo
+      - mongo # para linkear nuestra app container con nuetro mongo container
   mongo:
     container_name: mongo
-    image: mongo
+    image: mongo # dado que este no se hace desde una imagen como el de arriba, hay que importarlo desde dockerhub
     ports:
       - '27017:27017'
